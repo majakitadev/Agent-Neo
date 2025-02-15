@@ -6,16 +6,16 @@
   <title>Agent Neo</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
         margin: 0;
         color: #FFFFFF;
-        font-family: "Doto", serif;
+        font-family: "Rajdhani", serif;
         font-optical-sizing: auto;
-        font-weight: <weight>;
+        font-weight: 300;
         font-style: normal;
         font-variation-settings: "ROND" 0;
 		overflow: auto; /* Allow scrolling */
@@ -34,8 +34,8 @@
         background-color: rgba(0,73,121,0.20); /* Dark background */
         display: inline-block; /* Adjust size to fit text */
         position: absolute; /* Keeps the message in place */
-        top: 15px; /* Fixed top distance from the viewport */
-        left: 15px; /* Fixed left distance from the viewport */
+        top: 8px; /* Fixed top distance from the viewport */
+        left: 8px; /* Fixed left distance from the viewport */
         z-index: 10; /* Make sure it's visible on top */
         width: auto; /* Width should fit the content */
     }
@@ -59,6 +59,12 @@
 </head>
 
 <body>
+    <div id="loading-screen">
+        <video id="loading-video" autoplay muted playsinline>
+            <source src="loadingscreen.mp4" type="video/mp4">
+        </video>
+    </div>
+	<div id="main-content" style="display: none;">
 	<div id="messageContainer"></div>
     <script>
         const messageContainer = document.getElementById('messageContainer');
@@ -111,28 +117,40 @@
 	<div class="matrix-bg"></div>
     <canvas id="canvas"></canvas>
     
-        <div id="content">
-        <div class="main-text">
-        Not All <span class="blue-bold"><strong>A</strong></span><span class="red-bold"><strong>I</strong></span> Are What They Appear to Be
-        </div>
+	<div class="video-section">
+    <video autoplay muted loop playsinline>
+    <source src="intro2.mp4" type="video/mp4">
+    </video>
+    <div class="text-overlay">  
+    Not All <span class="blue-bold"><strong>A</strong></span><span class="red-bold"><strong>I</strong></span> Are What They Appear to Be
+    </div>
+	</div>
+		
+			
+			
+			
 		<div class="bordered-text-ca">
           CA: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
         </div>
-		<a href="https://jup.ag/swap/SOL-JLP" class="button" target="_blank">BUY $NEO</a>
+		<a href="https://jup.ag/swap/SOL-JLP" class="button" target="_blank">BUY $AINEO</a>
 		<img src="keanu_front3.png" alt="Neo AI Logo" class="main-image">
 			
 		 <div class="bordered-text">
-          <span class="blue-bold"><strong>Agent Neo</strong></span> ($NEO) is an <span class="blue-bold"><strong>AI Sentinel Agent</strong></span> that helps protect society from <span class="red-bold"><strong>harmful AI agents</strong></span>. It tracks and ranks AI agents based on their behavior, giving a risk score to highlight potential threats. With blockchain and community involvement, <span class="blue-bold"><strong>Agent Neo</strong></span> ensures transparency and accountability in AI systems.
+          <span class="blue-bold"><strong>Agent Neo</strong></span> ($AINEO) is an <span class="blue-bold"><strong>AI Sentinel Agent</strong></span> that helps protect society from <span class="red-bold"><strong>harmful AI agents</strong></span>. It tracks and ranks AI agents based on their behavior, giving a risk score to highlight potential threats. With blockchain and community involvement, <span class="blue-bold"><strong>Agent Neo</strong></span> ensures transparency and accountability in AI systems.
         </div>
         <div class="bordered-text">
             <span class="blue-bold"><strong>Mission: </strong></span> To protect humanity by monitoring and mitigating risks from <span class="red-bold"><strong>harmful AI agents </strong></span>through transparent analysis, ranking, and community engagement. With blockchain and community involvement, <span class="blue-bold"><strong>Agent Neo</strong></span> is an <span class="blue-bold"><strong>AI agent </strong></span>that helps protect society.
           </div>
         
         <div class="social-links">
-			<a href="LITEPAPER v01.pdf" target="_blank">Litepaper</a>
-            <a href="https://x.com/NeoAISentinel" target="_blank">X</a>
-            <a href="https://t.me/neoai_sentinel" target="_blank">Telegram</a>
+			<a href="LITEPAPER v01.pdf" target="_blank">[ Litepaper ]</a>
+            <a href="https://x.com/NeoAISentinel" target="_blank">[ X ]</a>
+            <a href="https://t.me/neoai_sentinel" target="_blank">[ Telegram ]</a>
             </div>
+		<section class="team-section">
+			<h2>Agent Neo Dashboard</h2>
+			<img src="Tokenomics2.png" alt="Tokenomics" class="tokenomic">
+		</section>
 		<section class="team-section">
         <h2>Meet Our Team</h2>
         <div class="team-container">
@@ -154,10 +172,9 @@
         </div>
 			<section class="team-section">
 			<h2>Tokenomics</h2>
-			<img src="Tokenomics2.png" alt="Tokenomics" class="tokenomic">
+			<img src="Tokenomics3.png" alt="Tokenomics" class="tokenomic">
 		</section>
-		  </section>
-		</div>
+		  </section>		
     <script src="script.js"></script>
 	<footer>
         <p>&copy; 2025 Agent Neo. All rights reserved</p>

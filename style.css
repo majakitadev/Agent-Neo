@@ -10,16 +10,37 @@ html, body {
   
   body {
     position: relative;
-    background: rgba(33,0,70,1.00); /* Ensure no white background */
+    background: rgba(0,0,0,1.00); /* Ensure no white background */
+
   }
-  
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,1.00) 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 1s ease-out;
+}
+
+#loading-video {
+    object-fit:contain;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
   .matrix-container {
     position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: -1;
 }
-
 
 canvas {
     display: block;
@@ -28,7 +49,7 @@ canvas {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -44,12 +65,50 @@ canvas {
     z-index: -1;
   }
   
-
-
-.button:hover {
-    background-color: #3763E9; /* Darker shade on hover */
-    transform: scale(1.02); /* Slightly increase size on hover */
+.video-section {
+      position: relative;
+      width: 100%;
+      max-width: 1200px; /* Set your desired max width */
+      height: 320px;     /* Set your desired height */
+      margin: 20px auto; /* Center the section */
+	  margin-top: 80px;
+      overflow: hidden;
+      border-radius: 5px; /* Optional: Add rounded corners */
+	  z-index: 10;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;  /* Ensures the video covers the entire container without distortion */
+	  filter: brightness(70%);
+    }
+.video-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    pointer-events: none; /* Prevents interaction issues */
+    z-index: 2;
 }
+    .text-overlay {
+      position: absolute;
+	  line-height: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      font-size: 60px !important; 
+	  text-shadow: -3px -3px 3px #000000, 3px 3px 3px #002C87;
+	  font-weight: 500;
+	  z-index: 3;
+	  
+    }
+
+
   
   @keyframes scroll {
     from {
@@ -65,7 +124,7 @@ canvas {
     position: relative; /* Use relative positioning */
     margin: 50px auto; /* Add spacing for better visibility */
     text-align: center;
-    z-index: 2;
+    z-index: 10;
     max-width: 1200px;
      
 }
@@ -80,10 +139,14 @@ canvas {
     margin-bottom: 2rem;
   }
   
+
   .social-links a {
-    color: #ffffff;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    margin: 0 auto;
+	color: #ffffff;
     text-decoration: none;
-    margin: 0 1rem;
     font-size: 2rem;
     font-family: "Exo 2", serif;
     font-optical-sizing: auto;
@@ -101,7 +164,7 @@ canvas {
     display: inline-block;  /* Makes the div fit the text size */
     color: white;           /* Default text color is white */
 	text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-    font-family: "Doto", serif;
+    font-family: "Revalia", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
@@ -113,6 +176,7 @@ canvas {
     margin: 20px auto;      /* Center the text block and add spacing */
     text-align: center;     /* Center the text inside the box */
     margin-top: 50px;
+	z-index: 10;
   }
 
   .bordered-text {
@@ -131,6 +195,7 @@ canvas {
     max-width: 768px;       /* Maximum width for large screens */
     margin: 20px auto;      /* Center the text block and add spacing */
     text-align: center;     /* Center the text inside the box */
+	z-index: 10;
   }
 
 .bordered-text-ca {
@@ -148,34 +213,45 @@ canvas {
     max-width: 768px;       /* Maximum width for large screens */
     margin: 20px auto;      /* Center the text block and add spacing */
     text-align: center;     /* Center the text inside the box */
+	z-index: 10;
   }
 
   .button {
-    display: inline-block;
+    display: block;
+	margin: 0 auto;
+	width: 150px;
     text-decoration: none; /* Remove underline from the link */
     color: #fff; /* Text color */
     background-color: rgba(0,73,121,1.00); /* Button background color */
     padding: 10px 20px; /* Button padding */
     font-size: 1.1em; /* Font size */
+	text-align: center;
     border-radius: 6px; /* Rounded corners */
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+	z-index: 10;
+}
+
+.button:hover {
+    background-color: #3763E9; /* Darker shade on hover */
+
 }
 
 .team-section {
             text-align: center;
             padding: 50px 20px;
+	        z-index: 10;
         }
 
         .team-section h2 {
-			color: #1B7AB9;
+			color: rgba(22,63,155,1.00);;
             font-size: 3em;
 			font-weight: 800;
 			margin-bottom: 20px;
-			text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+			text-shadow: -1px -1px 1px #B7BBFC, 1px 1px 1px #000;
         }
 
         .team-section h3 {
-			color: #1A73B2;
+			color: rgba(22,63,155,1.00);;
 			 font-family: "Exo 2", serif;
             font-optical-sizing: auto;
             font-weight: 800;
@@ -223,7 +299,7 @@ canvas {
 
   
   .blue-bold {
-    color: rgba(27,122,185,1.00);         /* Green color for NeoGuard.AI and AI agent */
+    color: rgba(22,63,155,1.00);         /* Green color for NeoGuard.AI and AI agent */
     font-weight: bold;      /* Make them bold */
   }
   

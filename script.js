@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", function () {
+            const loadingScreen = document.getElementById("loading-screen");
+            const mainContent = document.getElementById("main-content");
+            const video = document.getElementById("loading-video");
+
+            // Wait for video to finish playing
+            video.addEventListener("ended", function () {
+                loadingScreen.style.opacity = "0"; // Fade out effect
+                setTimeout(() => {
+                    loadingScreen.style.display = "none"; // Hide loading screen
+                    mainContent.style.display = "block"; // Show website content
+                }, 1000); // Adjust delay for smooth transition
+            });
+        });
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
