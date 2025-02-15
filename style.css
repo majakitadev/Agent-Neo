@@ -207,7 +207,7 @@ canvas {
     font-family: "Exo 2", serif;
     font-optical-sizing: auto;
     font-weight: 200;
-    font-size: 20px;        /* Font size */
+    font-size: clamp(15px, 5vw, 20px);        /* Font size */
     line-height: 1.5;       /* Line height for better readability */
     max-width: 768px;       /* Maximum width for large screens */
     margin: 20px auto;      /* Center the text block and add spacing */
