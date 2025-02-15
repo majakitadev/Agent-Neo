@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
 	width: 100%;
-    overflow: auto; /* Prevent scrollbars */
+    overflow-x: hidden; /* Prevent scrollbars */
     overflow-y: auto;
     height: 100%; /* Make the body take full height */
    }
