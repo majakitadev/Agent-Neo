@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Neo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+        margin: 0;
+        color: #FFFFFF;
+        font-family: "Doto", serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-variation-settings: "ROND" 0;
+		overflow: auto; /* Allow scrolling */
+    }
+    canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    #messageContainer {
+        font-size: 20px;
+        margin: 0;
+        padding: 10px;
+        border: 2px solid rgba(0,73,121,1.00); /* Green border */
+        border-radius: 10px; /* Rounded corners */
+        background-color: rgba(0,73,121,0.20); /* Dark background */
+        display: inline-block; /* Adjust size to fit text */
+        position: absolute; /* Keeps the message in place */
+        top: 15px; /* Fixed top distance from the viewport */
+        left: 15px; /* Fixed left distance from the viewport */
+        z-index: 10; /* Make sure it's visible on top */
+        width: auto; /* Width should fit the content */
+    }
+
+    .message {
+        display: inline-block;
+    }
+
+    .typing {
+        border-right: 2px solid #FFFFFF;
+        animation: blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+        50% {
+            border-color: transparent;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+	<div id="messageContainer"></div>
+    <script>
+        const messageContainer = document.getElementById('messageContainer');
+        const message = "Scanning rogue agent...";
+
+        function typeMessage(callback) {
+            let charIndex = 0;
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', 'typing');
+            messageElement.innerHTML = '';
+            messageContainer.innerHTML = '';  // Clear previous messages
+            messageContainer.appendChild(messageElement);
+
+            const typingInterval = setInterval(() => {
+                messageElement.innerHTML += message.charAt(charIndex);
+                charIndex++;
+                if (charIndex === message.length) {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        setTimeout(() => {
+                            deleteMessage(callback);
+                        }, 3000); // Wait for 2 seconds (blinking cursor)
+                    }, 5000); // Hold the message for 5 seconds
+                }
+            }, 100);
+        }
+
+        function deleteMessage(callback) {
+            const messageElement = messageContainer.lastElementChild;
+            let charIndex = message.length;
+            const deletingInterval = setInterval(() => {
+                messageElement.innerHTML = messageElement.innerHTML.slice(0, -1);
+                charIndex--;
+                if (charIndex === 0) {
+                    clearInterval(deletingInterval);
+                    setTimeout(() => {
+                        callback(); // Call the typeMessage again
+                    }, 2000); // Wait for 2 seconds (blinking cursor)
+                }
+            }, 100);
+        }
+
+        function startConversation() {
+            typeMessage(startConversation); // Start the typing and deletion loop
+        }
+
+        // Start the conversation when the page loads
+        window.onload = startConversation;
+    </script>
+	<div class="matrix-bg"></div>
+    <canvas id="canvas"></canvas>
+    
+        <div id="content">
+        <div class="main-text">
+        Not All <span class="blue-bold"><strong>A</strong></span><span class="red-bold"><strong>I</strong></span> Are What They Appear to Be
+        </div>
+		<div class="bordered-text-ca">
+          CA: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        </div>
+		<a href="https://jup.ag/swap/SOL-JLP" class="button" target="_blank">BUY $NEO</a>
+		<img src="keanu_front3.png" alt="Neo AI Logo" class="main-image">
+			
+		 <div class="bordered-text">
+          <span class="blue-bold"><strong>Agent Neo</strong></span> ($NEO) is an <span class="blue-bold"><strong>AI Sentinel Agent</strong></span> that helps protect society from <span class="red-bold"><strong>harmful AI agents</strong></span>. It tracks and ranks AI agents based on their behavior, giving a risk score to highlight potential threats. With blockchain and community involvement, <span class="blue-bold"><strong>Agent Neo</strong></span> ensures transparency and accountability in AI systems.
+        </div>
+        <div class="bordered-text">
+            <span class="blue-bold"><strong>Mission: </strong></span> To protect humanity by monitoring and mitigating risks from <span class="red-bold"><strong>harmful AI agents </strong></span>through transparent analysis, ranking, and community engagement. With blockchain and community involvement, <span class="blue-bold"><strong>Agent Neo</strong></span> is an <span class="blue-bold"><strong>AI agent </strong></span>that helps protect society.
+          </div>
+        
+        <div class="social-links">
+			<a href="LITEPAPER v01.pdf" target="_blank">Litepaper</a>
+            <a href="https://x.com/NeoAISentinel" target="_blank">X</a>
+            <a href="https://t.me/neoai_sentinel" target="_blank">Telegram</a>
+            </div>
+		<section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="team1.jpg" alt="The Architect">
+                <h3>The Architect</h3>
+                <p>Designing the Core of Agent Neo</p>              
+            </div>
+            <div class="team-member">
+                <img src="team2.jpg" alt="The Oracle">
+                <h3>The Oracle</h3>
+                <p>Passionate about advancing technology</p>        
+          </div>
+            <div class="team-member">
+                <img src="team3.jpg" alt="The Operator">
+                <h3>The Operator</h3>
+                <p>Bridging the AI and Crypto Worlds</p>              
+            </div>
+        </div>
+			<section class="team-section">
+			<h2>Tokenomics</h2>
+			<img src="Tokenomics2.png" alt="Tokenomics" class="tokenomic">
+		</section>
+		  </section>
+		</div>
+    <script src="script.js"></script>
+	<footer>
+        <p>&copy; 2025 Agent Neo. All rights reserved</p>
+        <p>
+            <a style="color: white;">Built on Solana for better future</a>
+          
+        </p>
+    </footer>
+</body>
+</html>
