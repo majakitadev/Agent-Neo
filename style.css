@@ -140,12 +140,20 @@ canvas {
   }
   
 
-  .social-links a {
+ .social-links {
     display: flex;
-	justify-content: center;
-	align-items: center;
-    margin: 0 auto;
-	color: rgba(172,183,221,1.00);
+    justify-content: center; /* Centers the links */
+    align-items: center;
+    gap: 20px; /* Adjust spacing between links */
+    flex-wrap: wrap; /* Ensures links break into a new row if needed */
+    text-align: center;
+}
+
+.social-links a {
+    display: flex; /* Keeps icons or text aligned properly */
+    justify-content: center;
+    align-items: center;
+    color: rgba(172,183,221,1.00);
     text-decoration: none;
     font-size: 2rem;
     font-family: "Exo 2", serif;
@@ -153,8 +161,7 @@ canvas {
     font-weight: 700;
     font-style: normal;
     transition: color 0.5s;
-    margin-right: 15px;
-  }
+}
   
   .social-links a:hover {
     color: #3763E9;
