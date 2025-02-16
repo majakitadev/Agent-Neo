@@ -64,14 +64,17 @@
             <source src="loadingscreen.mp4" type="video/mp4">
         </video>
     </div>
-	<div id="main-content" style="display: none;">
-	<div id="messageContainer"></div>
+<div id="main-content" style="display: none;">
+    <div id="messageContainer"></div>
     <script>
         const messageContainer = document.getElementById('messageContainer');
-        const message = "Scanning rogue agent...";
+        const messages = ["Scanning rogue agent...", "Neutralizing rogue agent..."];
+        let currentMessageIndex = 0;
+        let isFirstRun = true; // Flag to track the first run
 
         function typeMessage(callback) {
             let charIndex = 0;
+            const message = messages[currentMessageIndex];
             const messageElement = document.createElement('div');
             messageElement.classList.add('message', 'typing');
             messageElement.innerHTML = '';
@@ -84,36 +87,44 @@
                 if (charIndex === message.length) {
                     clearInterval(typingInterval);
                     setTimeout(() => {
-                        setTimeout(() => {
-                            deleteMessage(callback);
-                        }, 3000); // Wait for 2 seconds (blinking cursor)
-                    }, 5000); // Hold the message for 5 seconds
+                        deleteMessage(callback);
+                    }, 3000); // Hold the message for 3 seconds
                 }
             }, 100);
         }
 
         function deleteMessage(callback) {
             const messageElement = messageContainer.lastElementChild;
-            let charIndex = message.length;
+            let charIndex = messages[currentMessageIndex].length;
             const deletingInterval = setInterval(() => {
                 messageElement.innerHTML = messageElement.innerHTML.slice(0, -1);
                 charIndex--;
                 if (charIndex === 0) {
                     clearInterval(deletingInterval);
                     setTimeout(() => {
-                        callback(); // Call the typeMessage again
-                    }, 2000); // Wait for 2 seconds (blinking cursor)
+                        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+                        callback();
+                    }, 2000); // Wait for 2 seconds before typing the next message
                 }
             }, 100);
         }
 
         function startConversation() {
-            typeMessage(startConversation); // Start the typing and deletion loop
+            if (isFirstRun) {
+                isFirstRun = false;
+                setTimeout(() => {
+                    typeMessage(startConversation);
+                }, 9000); // Delay first typing by 10 seconds
+            } else {
+                typeMessage(startConversation);
+            }
         }
 
-        // Start the conversation when the page loads
+        // Start the typing effect when the page loads
         window.onload = startConversation;
     </script>
+</div>
+
 	<div class="matrix-bg"></div>
     <canvas id="canvas"></canvas>
     
@@ -160,8 +171,32 @@
 		<section class="team-section">
 			<h2>Tokenomics</h2>
 		    <div class="bordered-text">
+			Agent Neo is designed for long-term success, with a well-balanced tokenomics model that fuels innovation, rewards the community, and ensures continuous growth.
 			<img src="Tokenomics3.png" alt="Tokenomics" class="tokenomic">
 		    </div>
+		</section>
+		
+		<section class="team-section">
+			<h2>Roadmap</h2>
+		    <div class="bordered-text">
+			<h4>Phase 1: Foundation</h4>
+			<h5>Launch $AINEO token on Solana via Pump.Fun.</h5>
+			<h5>Finalize AI agent algorithms and risk assessment models.</h5>
+			<h5>Integrate with Twitter API for real-time agent behaviour tracking.</h5>
+			
+			<h4>Phase 2: Expansion</h4>
+			<h5>Build platform MVP with basic monitoring and ranking.</h5>
+			<h5>Website v2 launch</h5>
+			<h5>Expand to real-time human behaviour tracking (including influencers)</h5>
+			<h5>Launch premium services and staking features.</h5>
+				
+			<h4>Phase 3: Ecosystem Growth</h4>
+			<h5>Expand monitoring to other platforms (e.g., Discord, Telegram).</h5>
+			<h5>Introduce gamified community participation features.</h5>
+			<h5>Establish partnerships with AI governance organizations.</h5>
+			<h5>Tier 1 CEX listing.</h5>
+			
+			</div>
 		</section>
 		
 		<section class="team-section">
