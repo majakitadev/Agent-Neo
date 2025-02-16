@@ -29,7 +29,7 @@ html, body {
 }
 
 #loading-video {
-	max-width: 1000px;
+	max-width: 800px;
     object-fit:contain;
 }
 
@@ -140,17 +140,16 @@ canvas {
   }
   
 
- .social-links {
+.social-links {
     display: flex;
-    justify-content: center; /* Centers the links */
-    align-items: center;
-    gap: 20px; /* Adjust spacing between links */
-    flex-wrap: wrap; /* Ensures links break into a new row if needed */
+    flex-direction: column; /* Stack links in a vertical column */
+    align-items: center; /* Center links horizontally */
+    gap: 10px; /* Adjust spacing between links */
     text-align: center;
 }
 
 .social-links a {
-    display: flex; /* Keeps icons or text aligned properly */
+    display: flex;
     justify-content: center;
     align-items: center;
     color: rgba(172,183,221,1.00);
