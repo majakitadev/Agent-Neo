@@ -68,7 +68,10 @@
     <div id="messageContainer"></div>
     <script>
         const messageContainer = document.getElementById('messageContainer');
-        const messages = ["Scanning rogue agent...", "Neutralizing rogue agent..."];
+        const messages = ["Scanning rogue agent...", 
+						  "Neutralizing rogue agent...", 
+						  "Scanning deceptive KOLs...", 
+						  "Neutralizing deceptive KOLs..."];
         let currentMessageIndex = 0;
         let isFirstRun = true; // Flag to track the first run
 
@@ -114,7 +117,7 @@
                 isFirstRun = false;
                 setTimeout(() => {
                     typeMessage(startConversation);
-                }, 9000); // Delay first typing by 10 seconds
+                }, 8800); // Delay first typing by 10 seconds
             } else {
                 typeMessage(startConversation);
             }
