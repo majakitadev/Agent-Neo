@@ -104,7 +104,7 @@ canvas {
       transform: translate(-50%, -50%);
       color: white;
       text-align: center;
-      font-size: clamp(45px, 6vw, 70px);
+      font-size: clamp(45px, 6vw, 75px);
 	  text-shadow: -3px -3px 3px #000000, 3px 3px 3px #002C87;
 	  font-weight: 500;
 	  z-index: 3;
