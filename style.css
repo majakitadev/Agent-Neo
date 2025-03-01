@@ -226,6 +226,7 @@ canvas {
     display: block;
 	margin: 0 auto;
 	width: 150px;
+	margin-top: 10px;
     text-decoration: none; /* Remove underline from the link */
     color: #fff; /* Text color */
     background-color: rgba(0,73,121,1.00); /* Button background color */
