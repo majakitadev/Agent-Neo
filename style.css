@@ -224,7 +224,7 @@ canvas {
 
   .button {
     display: block;
-	margin-top: 10px;
+	margin: 10px auto;
 	width: 150px;
 	
     text-decoration: none; /* Remove underline from the link */
